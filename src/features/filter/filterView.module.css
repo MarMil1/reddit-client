@@ -1,0 +1,67 @@
+.filterContainer {
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: 20px auto 20px auto;
+    box-shadow: 1px 1px 1px 1px rgb(183 183 183 / 18%);
+    max-width: 600px;
+    height: 50px;
+    border-radius: 3px;
+    text-align: left;
+    line-height: 30px;
+    border: 1px solid #cccccc;
+    overflow: hidden;
+}
+
+.filterSubContainer {
+    display: flex;
+    margin-top: 10px;
+    min-width: min-content;
+    max-width: 350px;
+    justify-content: space-evenly;
+}
+
+.filterItem {
+    /* margin-right: 10px; */
+    height: 30px;
+    padding: 3px;
+    align-self: center;
+    border-radius: 20px;
+    padding: 0 10px 0 10px;
+}
+
+.filterItem:hover {
+    background-color: lightgray;
+}
+
+.filterIcon {
+    color: gray;
+    font-size: 1.3rem;
+    margin-right: 7px;
+    display: inline-block;
+}
+
+.filterName {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: gray;
+    vertical-align: top;
+}
+
+.active {
+    background-color: #e7e7e7;
+}
+
+.active .filterIcon, .active .filterName {
+    color: #118ae6;
+}
+
+.topIcon {
+    rotate: 270deg;
+}
+
+.risingIcon {
+    rotate: 315deg;
+}
+
+.textLink {
+    text-decoration: inherit;
+}
