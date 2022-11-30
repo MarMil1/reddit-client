@@ -1,56 +1,55 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./singlePost.module.css";
+import Modal from "@mui/material/Modal";
+import { ModalCommentsView } from "../modalComments/ModalCommentsView";
+import { abbreviateNumber } from "../../helperFunctions/abbreviateNumber";
+import { timeSince } from "../../helperFunctions/timeSince";
+import axios from "axios";
 
 export const SinglePost = (props) => {
-  const SI_SYMBOL = ["", "k", "M", "G", "T", "P", "E"];
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
-  const abbreviateNumber = (number) => {
-    const tier = (Math.log10(Math.abs(number)) / 3) | 0;
-    if (tier === 0) return number;
-    const suffix = SI_SYMBOL[tier];
-    const scale = Math.pow(10, tier * 3);
-    const scaled = number / scale;
+  const [subredditImageLink, setSubredditImageLink] = useState();
 
-    return scaled.toFixed(1) + suffix;
-  };
-
-  const timeSince = (date) => {
-    const seconds = Math.floor(new Date().getTime() / 1000 - date);
-    let interval = seconds / 31536000;
-
-    if (interval > 1) {
-      return Math.floor(interval) + " years";
-    }
-    interval = seconds / 2592000;
-    if (interval > 1) {
-      return Math.floor(interval) + " months";
-    }
-    interval = seconds / 86400;
-    if (interval > 1) {
-      return Math.floor(interval) + " days";
-    }
-    interval = seconds / 3600;
-    if (interval > 1) {
-      return Math.floor(interval) + " hours";
-    }
-    interval = seconds / 60;
-    if (interval > 1) {
-      return Math.floor(interval) + " minutes";
-    }
-    return Math.floor(seconds) + " seconds";
-  };
+  useEffect(() => {
+    const getCommentAuthorData = async () => {
+      try {
+        const response = await axios.get(
+          `https://www.reddit.com/r/${props.subreddit}/about.json`
+        );
+        setSubredditImageLink(response.data.data.icon_img);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getCommentAuthorData();
+  }, [props.subreddit]);
 
   return (
     <div className={styles.singlePostContainer}>
       <div className={styles.votes}>
         <div className={styles.upsVotesArrow}>&#10140;</div>
         <div className={styles.upsVotes}>{abbreviateNumber(props.ups)}</div>
-        <div className={styles.ratioVotes}>{props.ratio * 100}%</div>
       </div>
       <div className={styles.mainPostContent}>
         <div className={styles.authorSubredditContainer}>
+          {subredditImageLink ? (
+            <img
+              className={styles.authorSubredditImage}
+              src={subredditImageLink}
+              alt="subreddit"
+            />
+          ) : (
+            <img
+              className={styles.authorSubredditImage}
+              src="https://www.redditstatic.com/avatars/avatar_default_02_46D160.png"
+              alt="subreddit"
+            />
+          )}
           <a href={`https://www.reddit.com${props.subreddit}`}>
-            <div className={styles.subreddit}>{props.subreddit}</div>
+            <div className={styles.subreddit}>{`/r/${props.subreddit}`}</div>
           </a>
           •
           <div className={styles.author}>
@@ -65,16 +64,50 @@ export const SinglePost = (props) => {
           </span>
         </div>
         <div className={styles.title}>{props.title}</div>
-        {props.postHint === "link" && <a href={props.image}>{props.image}</a>}
+        {props.postHint === "link" && (
+          <div className={styles.linkContent}>
+            <a href={props.image}>{props.image}</a>
+          </div>
+        )}
         {props.postHint === "image" && (
           <img className={styles.image} src={props.image} alt="post" />
         )}
         {props.postHint === "hosted:video" && (
-          <video preload="auto" width="320" height="240" controls>
-            <source src={props.image} type="application/vnd.apple.mpegURL" />
+          <video className={styles.video} preload="auto" controls>
+            <source src={props.video} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         )}
+
+        <div className={styles.commentSection} onClick={handleOpen}>
+          <i className="fa-regular fa-message"></i>
+          <div className={styles.commentNumber}>
+            {abbreviateNumber(props.numComments)} Comments
+          </div>
+        </div>
+
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+          sx={{ overflowY: "scroll" }}
+        >
+          <ModalCommentsView
+            title={props.title}
+            handleClose={() => handleClose()}
+            postHint={props.postHint}
+            image={props.image}
+            video={props.video}
+            subreddit={props.subreddit}
+            author={props.author}
+            created={timeSince(props.created)}
+            ups={abbreviateNumber(props.ups)}
+            ratio={props.ratio}
+            numComments={abbreviateNumber(props.numComments)}
+            permalink={props.permalink}
+          />
+        </Modal>
       </div>
     </div>
   );

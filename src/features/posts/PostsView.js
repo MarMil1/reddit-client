@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchPosts } from "./postSlice";
 import { SinglePost } from "./SinglePost";
 import { updateCategory } from "../filter/filterSlice";
+import SkeletonPostView from "../skeletonLoad/SkeletonPostView";
 
 export const PostsView = () => {
   const post = useSelector((state) => state.post);
+  // console.log(post, "POST");
   const postCategory = useSelector((state) => state.filter.postCategory);
-  console.log(postCategory, "This is postCategory");
   const dispatch = useDispatch();
   useEffect(() => {
     if (!postCategory) {
@@ -21,7 +22,14 @@ export const PostsView = () => {
 
   return (
     <div>
-      {post.loading && <div>Loading...</div>}
+      {post.loading && (
+        <div>
+          <SkeletonPostView />
+          <SkeletonPostView />
+          <SkeletonPostView />
+          <SkeletonPostView />
+        </div>
+      )}
       {!post.loading && post.error ? <div>Error: {post.error}</div> : null}
       {!post.loading && post.posts.length ? (
         <div>
@@ -31,11 +39,18 @@ export const PostsView = () => {
               title={post.title}
               image={post.url}
               author={post.author}
-              subreddit={post.permalink.split("/").slice(0, 3).join("/")}
+              subreddit={post.subreddit}
               ups={post.ups}
               ratio={post.upvote_ratio}
               postHint={post.post_hint}
               created={post.created}
+              video={
+                post.secure_media !== null &&
+                post.secure_media.reddit_video &&
+                post.secure_media.reddit_video.fallback_url
+              }
+              numComments={post.num_comments}
+              permalink={post.permalink}
             />
           ))}
         </div>

@@ -1,0 +1,14 @@
+.skeletonCommentContainer {
+    padding: 10px;
+    border-bottom: 1px solid #efefef;
+    background-color: white;
+}
+
+.skeletonUserInfo {
+    display: flex;
+    align-items: center;
+}
+
+.skeletonCommentBody {
+    width: 100%;
+}
