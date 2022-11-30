@@ -13,6 +13,7 @@ export const fetchPosts = createAsyncThunk(
     const response = await axios.get(
       `https://www.reddit.com/r/popular/${filterType}.json`
     );
+    // console.log(response.data.data.children, "<<<<< Response");
     return response.data.data.children.map((post) => post.data);
   }
 );

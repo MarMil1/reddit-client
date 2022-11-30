@@ -17,6 +17,7 @@
     font-size: 0.8rem;
     font-weight: 700;
     text-align: center;
+    color: #030303;
 }
 
 .upsVotesArrow {
@@ -26,23 +27,33 @@
 }
 
 .mainPostContent {
-    padding: 10px;
     overflow-wrap: anywhere;
+    width: 100%;
+    background-color: white;
 }
 
 .authorSubredditContainer {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    padding: 10px;
+}
+
+.authorSubredditImage {
+    height: 21px;
+    width: auto;
+    border-radius: 10px;
+    margin-right: 5px;
 }
 
 .subreddit {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-weight: 600;
     margin-right: 5px;
 }
 
 .author, .created {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-weight: 300;
     margin-left: 5px;
     margin-right: 5px;
@@ -52,11 +63,44 @@
     font-size: 1.25rem;
     font-weight: 500;
     margin-bottom: 20px;
+    padding: 10px;
 }
 
 .image {
-    height: auto;
-    max-width: 100%;
+    height: 500px;
+    width: 100%;
+    object-fit: contain;
+}
+
+.video {
+    height: 500px;
+    width: 100%;
+}
+
+.linkContent {
+    margin: 0 auto 10px auto;
+    width: 95%;
+}
+
+.commentSection {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 5px 10px 5px 10px;
+    color: #808080;
+    width: max-content;
+    margin: 0px 0px 10px 10px;
+    border-radius: 3px;
+}
+
+.commentSection:hover {
+    background-color: lightgray;
+}
+
+.commentNumber {
+    margin-left: 7px;
+    font-size: 0.8rem;
+    font-weight: 700;
 }
 
 @media only screen and (max-width: 640px) {

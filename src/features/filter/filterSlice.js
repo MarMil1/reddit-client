@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  postCategory: "",
+  postCategory: window.location.pathname.substring(1).split("/")[1],
 };
 
 const postCategorySlice = createSlice({

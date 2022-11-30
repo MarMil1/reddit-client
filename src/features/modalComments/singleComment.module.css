@@ -1,0 +1,61 @@
+.commentContainer {
+    border-bottom: 1px solid #efefef;
+    padding: 10px;
+    background-color: white;
+}
+
+.commentHeader {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.userAvatar {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.userAvatar img {
+    width: auto;
+    height: 22px;
+    border-radius: 10px;
+}
+
+.author, .created, .edited {
+    font-size: 0.8rem;
+    font-weight: 300;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.editedContainer {
+    display: flex;
+    align-items: center;
+}
+
+.body {
+    font-weight: 300;
+    margin-left: 5px;
+    overflow-wrap: break-word;
+    margin-bottom: 10px;
+}
+
+.commentFooter {
+    display: flex;
+    align-items: center;
+}
+
+.upsVotesArrow {
+    transform: rotate(270deg);
+    font-size: 1.3rem;
+    width: min-content;
+    color: #b6b6b6;
+    margin-right: 5px;
+}
+
+.upsVotesNumber {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #030303;
+}

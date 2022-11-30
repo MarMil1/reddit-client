@@ -1,0 +1,25 @@
+.skeletonContainer {
+    max-width: 580px;
+    margin: 20px auto 20px auto;
+    display: flex;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.skeletonPostContainer {
+    width: 100%;
+}
+
+.skeletonVotes {
+    height: 300px;
+    width: 40px;
+}
+
+.skeletonUserVotes {
+    height: 312px !important;
+    transform: translate(0px, 0px) !important;
+}
+
+.skeletonHeader{
+    display: flex;
+}
