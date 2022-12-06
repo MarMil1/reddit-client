@@ -1,0 +1,156 @@
+.navContainer {
+    background-color: #ffffff;
+    height: 50px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    border-bottom: 1px solid #cccccc;
+}
+
+.navSubContainer {
+    background-color: #ffffff;
+    width: 95%;
+    max-width: 1440px;
+    height: inherit;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.navLogoContainer {
+    display: flex;
+    align-items: center;
+}
+
+.navLogo {
+    height: 35px;
+    width: auto;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+.navLogoTitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: gray;
+    margin-right: 10px;
+}
+
+.navMenuContainer {
+    display: none;
+    cursor: pointer;
+}
+
+.navMenuSearch {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.suggestionsContainer {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #f1f1f1;
+    transform: translate(0px, -7px);
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+}
+
+.suggestionsContainer * {
+    cursor: pointer;
+    padding: 10px;
+}
+
+.suggestionsContainer:hover {
+    background-color: #e5e5e5;
+}
+
+.suggestionsContainer:last-child {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.searchForBox {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #f1f1f1;
+    transform: translate(0px, -7px);
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    display: flex;
+    align-items: center;
+}
+
+.suggestionBox {
+    padding: 1px;
+    border-radius: 3px;
+    border: 1px solid rgb(0, 100, 0);
+}
+
+.suggestionBox:hover {
+    pointer-events: none;
+}
+
+@media screen and (max-width: 1200px) {
+    .navMenuContainer {
+        display: block;
+    }
+
+    .navLogoTitle {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 910px) {
+    .suggestionsContainer, .searchForBox {
+        max-width: 400px;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .suggestionsContainer, .searchForBox {
+        transform: translate(40px, -7px)
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .suggestionsContainer, .searchForBox {
+        max-width: 100%;
+        transform: translate(0px, -7px);
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .navMenuSearch {
+        transform: translate(-40%, -50%);
+    }
+
+    
+}
+
+@media screen and (max-width: 435px) {
+    .navMenuSearch {
+        transform: translate(-25%, -50%);
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .navMenuSearch {
+        max-width: 150px;
+        transform: translate(0%, -50%);
+    }
+}
+
+/* Highlight selected post START */
+.selectedPost {
+    box-shadow: 0px 0px 3px 3px orangered;
+}
+/* Highlight selected post END */

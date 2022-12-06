@@ -1,0 +1,63 @@
+.searchBarContainer {
+    display: flex;
+    align-items: center;
+    border: 1px solid #cccccc;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    height: 35px;
+    width: 500px;
+}
+
+.searchBarContainer:focus-within {
+    border: 1px solid #118ae6;
+}
+
+.searchInput {
+    border: none;
+    width: inherit;
+    height: 33px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    overflow: hidden;
+    font-size: 1rem;
+    color: #333333;
+}
+
+.searchInput:focus {
+    outline: none;
+}
+
+.deleteSearchbarContentbutton {
+    color: gray;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 910px){
+    .searchBarContainer {
+        width: 400px;
+    }
+    
+}
+
+@media screen and (max-width: 590px){
+    .searchBarContainer {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 505px){
+    .searchBarContainer {
+        max-width: 200px;
+    }
+}
+
+@media screen and (max-width: 380px){
+    .searchBarContainer {
+        max-width: 100px;
+    }
+
+    .searchInput {
+        width: 100px;
+    }
+}

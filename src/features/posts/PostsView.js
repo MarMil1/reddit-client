@@ -12,8 +12,8 @@ export const PostsView = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     if (!postCategory) {
-      dispatch(updateCategory("hot"));
-      dispatch(fetchPosts("hot"));
+      dispatch(updateCategory(".json"));
+      dispatch(fetchPosts(".json"));
     } else {
       dispatch(updateCategory(postCategory));
       dispatch(fetchPosts(postCategory));
@@ -32,10 +32,11 @@ export const PostsView = () => {
       )}
       {!post.loading && post.error ? <div>Error: {post.error}</div> : null}
       {!post.loading && post.posts.length ? (
-        <div>
-          {post.posts.map((post) => (
+        <div id="all-posts">
+          {post.posts.map((post, i) => (
             <SinglePost
               key={post.id}
+              id={i}
               title={post.title}
               image={post.url}
               author={post.author}

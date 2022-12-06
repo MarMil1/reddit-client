@@ -17,34 +17,43 @@ export const FilterView = () => {
   return (
     <div className={styles.filterContainer}>
       <div className={styles.filterSubContainer}>
-        <Link to="popular/hot" className={styles.textLink}>
+        <Link to="r/popular/hot" className={styles.textLink}>
           <div
             className={`${styles.filterItem} ${
-              postCategory === "hot" ? styles.active : ""
+              postCategory === "/r/popular/hot.json" ||
+              postCategory === "r/popular/hot.json"
+                ? styles.active
+                : ""
             }`}
-            onClick={() => handleIsActiveClick("hot")}
+            onClick={() => handleIsActiveClick("r/popular/hot.json")}
           >
             <div className={styles.filterIcon}>&#9832;</div>
             <span className={styles.filterName}>Hot</span>
           </div>
         </Link>
-        <Link to="popular/new" className={styles.textLink}>
+        <Link to="r/popular/new" className={styles.textLink}>
           <div
             className={`${styles.filterItem} ${
-              postCategory === "new" ? styles.active : ""
+              postCategory === "/r/popular/new.json" ||
+              postCategory === "r/popular/new.json"
+                ? styles.active
+                : ""
             }`}
-            onClick={() => handleIsActiveClick("new")}
+            onClick={() => handleIsActiveClick("r/popular/new.json")}
           >
             <div className={styles.filterIcon}>&#10040;</div>
             <span className={styles.filterName}>New</span>
           </div>
         </Link>
-        <Link to="popular/top" className={styles.textLink}>
+        <Link to="/r/popular/top" className={styles.textLink}>
           <div
             className={`${styles.filterItem} ${
-              postCategory === "top" ? styles.active : ""
+              postCategory === "/r/popular/top.json" ||
+              postCategory === "r/popular/top.json"
+                ? styles.active
+                : ""
             }`}
-            onClick={() => handleIsActiveClick("top")}
+            onClick={() => handleIsActiveClick("r/popular/top.json")}
           >
             <div className={`${styles.filterIcon} ${styles.topIcon}`}>
               &#10154;
@@ -52,12 +61,15 @@ export const FilterView = () => {
             <span className={styles.filterName}>Top</span>
           </div>
         </Link>
-        <Link to="popular/rising" className={styles.textLink}>
+        <Link to="r/popular/rising" className={styles.textLink}>
           <div
             className={`${styles.filterItem} ${
-              postCategory === "rising" ? styles.active : ""
+              postCategory === "/r/popular/rising.json" ||
+              postCategory === "r/popular/rising.json"
+                ? styles.active
+                : ""
             }`}
-            onClick={() => handleIsActiveClick("rising")}
+            onClick={() => handleIsActiveClick("r/popular/rising.json")}
           >
             <div className={`${styles.filterIcon} ${styles.risingIcon}`}>
               &#10144;

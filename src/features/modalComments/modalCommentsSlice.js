@@ -19,6 +19,14 @@ export const fetchComments = createAsyncThunk(
 const commentSlice = createSlice({
   name: "comment",
   initialState,
+  // reducers: {
+  //   handleOpen: (state) => {
+  //     state.modalOpen = true;
+  //   },
+  //   handleClose: (state) => {
+  //     state.modalOpen = false;
+  //   },
+  // },
   extraReducers: (builder) => {
     builder.addCase(fetchComments.pending, (state) => {
       state.loading = true;
@@ -37,3 +45,4 @@ const commentSlice = createSlice({
 });
 
 export default commentSlice.reducer;
+// export const { handleOpen, handleClose } = commentSlice.actions;

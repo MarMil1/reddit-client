@@ -45,8 +45,23 @@ export const ModalCommentsView = React.forwardRef((props, ref) => {
           </div>
           <Box className={styles.mainRedditPostContainer}>
             <div className={styles.authorSubredditContainer}>
-              <a href={`https://www.reddit.com${props.subreddit}`}>
-                <div className={styles.subreddit}>{props.subreddit}</div>
+              {props.subredditImageLink ? (
+                <img
+                  className={styles.authorSubredditImage}
+                  src={props.subredditImageLink}
+                  alt="subreddit"
+                />
+              ) : (
+                <img
+                  className={styles.authorSubredditImage}
+                  src="https://www.redditstatic.com/avatars/avatar_default_02_46D160.png"
+                  alt="subreddit"
+                />
+              )}
+              <a href={`https://www.reddit.com/r/${props.subreddit}`}>
+                <div
+                  className={styles.subreddit}
+                >{`/r/${props.subreddit}`}</div>
               </a>
               •
               <div className={styles.author}>

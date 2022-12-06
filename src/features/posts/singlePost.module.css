@@ -12,12 +12,13 @@
 }
 
 .votes {
-    background-color: #ebebeb;
+    background-color: #f2f1f1;
     padding: 10px;
     font-size: 0.8rem;
     font-weight: 700;
     text-align: center;
     color: #030303;
+    min-width: 35px;
 }
 
 .upsVotesArrow {
@@ -64,6 +65,8 @@
     font-weight: 500;
     margin-bottom: 20px;
     padding: 10px;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
 }
 
 .image {
