@@ -3,7 +3,7 @@
     left: 50%;
     transform: translate(-50%, 0%);
     width: 80%;
-    background-color: #e7ebee;
+    background-color: #e3e4e5;
     overflow: scroll;
     display: flex;
     flex-direction: column;
@@ -101,6 +101,13 @@
     align-items: center;
     flex-wrap: wrap;
     padding: 10px;
+}
+
+.authorSubredditImage {
+    height: 21px;
+    width: auto;
+    border-radius: 10px;
+    margin-right: 5px;
 }
 
 .subreddit {

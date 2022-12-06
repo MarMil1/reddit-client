@@ -1,3 +1,10 @@
+/**
+ * It takes a date in seconds, converts it to milliseconds, subtracts it from the current time in
+ * milliseconds, converts it back to seconds, and then converts it to years, months, days, hours,
+ * minutes, or seconds depending on the value
+ * @param date - The date you want to calculate the time since for.
+ * @returns The time since the date passed in.
+ */
 export const timeSince = (date) => {
   const seconds = Math.floor(new Date().getTime() / 1000 - date);
   let interval = seconds / 31536000;

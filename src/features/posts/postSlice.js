@@ -11,9 +11,10 @@ export const fetchPosts = createAsyncThunk(
   "post/fetchPosts",
   async (filterType) => {
     const response = await axios.get(
-      `https://www.reddit.com/r/popular/${filterType}.json`
+      `https://www.reddit.com/${filterType}?limit=100`
     );
-    // console.log(response.data.data.children, "<<<<< Response");
+    // console.log(response.data.data.children, "<<<<< Response POST SLICE");
+    // console.log(response.request.responseURL, "REQUEST POST SLICE");
     return response.data.data.children.map((post) => post.data);
   }
 );

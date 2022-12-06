@@ -28,7 +28,7 @@ export const SinglePost = (props) => {
   }, [props.subreddit]);
 
   return (
-    <div className={styles.singlePostContainer}>
+    <div id={props.id} className={styles.singlePostContainer}>
       <div className={styles.votes}>
         <div className={styles.upsVotesArrow}>&#10140;</div>
         <div className={styles.upsVotes}>{abbreviateNumber(props.ups)}</div>
@@ -48,7 +48,7 @@ export const SinglePost = (props) => {
               alt="subreddit"
             />
           )}
-          <a href={`https://www.reddit.com${props.subreddit}`}>
+          <a href={`https://www.reddit.com/r/${props.subreddit}`}>
             <div className={styles.subreddit}>{`/r/${props.subreddit}`}</div>
           </a>
           •
@@ -63,7 +63,9 @@ export const SinglePost = (props) => {
             Created {timeSince(props.created)} ago
           </span>
         </div>
-        <div className={styles.title}>{props.title}</div>
+        <div id={`post-title-${props.id}`} className={styles.title}>
+          {props.title}
+        </div>
         {props.postHint === "link" && (
           <div className={styles.linkContent}>
             <a href={props.image}>{props.image}</a>
@@ -106,6 +108,7 @@ export const SinglePost = (props) => {
             ratio={props.ratio}
             numComments={abbreviateNumber(props.numComments)}
             permalink={props.permalink}
+            subredditImageLink={subredditImageLink}
           />
         </Modal>
       </div>
