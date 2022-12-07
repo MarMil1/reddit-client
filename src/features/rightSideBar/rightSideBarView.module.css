@@ -1,0 +1,16 @@
+.rightSideBarContainer {
+    background-color: white;
+    width: 200px;
+    height: 500px;
+    transform: translate(0px, -52px);
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    padding: 10px 20px;
+    box-shadow: 1px 1px 1px 1px rgb(183 183 183 / 18%);
+}
+
+@media screen and (max-width: 1080px) {
+    .rightSideBarContainer {
+        display: none;
+    }
+}
