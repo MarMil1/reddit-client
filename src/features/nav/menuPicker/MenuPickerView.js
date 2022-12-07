@@ -52,7 +52,16 @@ export default function MenuPickerView() {
             <div className={styles.activeMenuButtonTitle}>Home</div>
           </>
         )}
-        {postCategory !== ".json" && (
+        {(postCategory === "/r/popular.json" ||
+          postCategory === "r/popular.json" ||
+          postCategory === "/r/popular/hot.json" ||
+          postCategory === "r/popular/hot.json" ||
+          postCategory === "/r/popular/new.json" ||
+          postCategory === "r/popular/new.json" ||
+          postCategory === "/r/popular/top.json" ||
+          postCategory === "r/popular/top.json" ||
+          postCategory === "/r/popular/rising.json" ||
+          postCategory === "r/popular/rising.json") && (
           <>
             <AutoGraphIcon sx={{ marginRight: 1, color: "gray" }} />
             <div className={styles.activeMenuButtonTitle}>Popular</div>

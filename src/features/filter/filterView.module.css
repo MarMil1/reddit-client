@@ -1,6 +1,6 @@
 .filterContainer {
     background-color: #ffffff;
-    margin: 20px auto 20px auto;
+    margin: 20px auto 0px auto;
     box-shadow: 1px 1px 1px 1px rgb(183 183 183 / 18%);
     max-width: 600px;
     height: 50px;
@@ -64,4 +64,11 @@
 
 .textLink {
     text-decoration: inherit;
+}
+
+@media screen and (min-width: 1081px) and (max-width: 1200px) {
+    .filterContainer {
+        margin-left: 10%;
+    }
+    
 }

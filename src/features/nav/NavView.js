@@ -36,61 +36,87 @@ export const NavView = () => {
     setSearchValue("");
   };
 
+  /* Adding an event listener to the window, and when the window is scrolled, it will run the function. */
+  var goToTopButtonShow = function () {
+    const goToTop = document.getElementById("go-to-top");
+    var y = window.scrollY;
+    if (y >= 300) {
+      goToTop.classList.add(styles.showGoToTop);
+    } else {
+      goToTop.classList.remove(styles.showGoToTop);
+    }
+  };
+  window.addEventListener("scroll", goToTopButtonShow);
+
   return (
-    <div className={styles.navContainer}>
-      <div className={styles.navSubContainer}>
-        <div className={styles.navLogoContainer}>
-          <img
-            src="https://www.redditstatic.com/avatars/avatar_default_02_FF4500.png"
-            alt="logo"
-            className={styles.navLogo}
-          />
-          <div className={styles.navLogoTitle}>Reddit-Client</div>
-          <div className={styles.navMenuContainer}>
-            <MenuPickerView />
+    <>
+      <div className={styles.navContainer}>
+        <div className={styles.navSubContainer}>
+          <div className={styles.navLogoContainer}>
+            <img
+              src="https://www.redditstatic.com/avatars/avatar_default_02_FF4500.png"
+              alt="logo"
+              className={styles.navLogo}
+            />
+            <div className={styles.navLogoTitle}>Reddit-Client</div>
+            <div className={styles.navMenuContainer}>
+              <MenuPickerView />
+            </div>
+          </div>
+          <div className={styles.navMenuSearch}>
+            <SearchView
+              suggestions={suggestions}
+              setSuggestions={setSuggestions}
+              searchValue={searchValue}
+              setSearchValue={setSearchValue}
+            />
           </div>
         </div>
-        <div className={styles.navMenuSearch}>
-          <SearchView
-            suggestions={suggestions}
-            setSuggestions={setSuggestions}
-            searchValue={searchValue}
-            setSearchValue={setSearchValue}
-          />
-        </div>
-      </div>
-      {suggestions.length <= 10 &&
-        suggestions.map((suggestion, i) => (
-          <div
-            key={i}
-            className={styles.suggestionsContainer}
-            onClick={(e) => scrollToResult(e.target)}
-          >
-            <div>{suggestion.title}</div>
-            {/* <Marker
+        {suggestions.length <= 10 &&
+          suggestions.map((suggestion, i) => (
+            <div
+              key={i}
+              className={styles.suggestionsContainer}
+              onClick={(e) => scrollToResult(e.target)}
+            >
+              <div>{suggestion.title}</div>
+              {/* <Marker
               mark={searchValue}
               options={{ className: styles.suggestionBox }}
             >
               {suggestion.title}
             </Marker> */}
+            </div>
+          ))}
+        {searchValue.length >= 2 && suggestions.length < 1 && (
+          <div className={styles.suggestionsContainer}>
+            <div style={{ padding: "10px" }}> No Matches Found</div>
           </div>
-        ))}
-      {searchValue.length >= 2 && suggestions.length < 1 && (
-        <div className={styles.suggestionsContainer}>
-          <div style={{ padding: "10px" }}> No Matches Found</div>
-        </div>
-      )}
-      {searchValue.length > 0 && (
-        <div className={styles.searchForBox}>
-          <SearchIcon
-            style={{
-              color: "gray",
-              margin: "10px",
-            }}
-          />
-          <div>Searching for "{searchValue}"</div>
-        </div>
-      )}
-    </div>
+        )}
+        {searchValue.length > 0 && (
+          <div className={styles.searchForBox}>
+            <SearchIcon
+              style={{
+                color: "gray",
+                margin: "10px",
+              }}
+            />
+            <div>Searching for "{searchValue}"</div>
+          </div>
+        )}
+      </div>
+      <div
+        id="go-to-top"
+        className={styles.goToTop}
+        onClick={() =>
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          })
+        }
+      >
+        Go to Top
+      </div>
+    </>
   );
 };

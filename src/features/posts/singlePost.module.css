@@ -65,8 +65,6 @@
     font-weight: 500;
     margin-bottom: 20px;
     padding: 10px;
-    border: 2px solid #ffffff;
-    border-radius: 5px;
 }
 
 .image {
@@ -98,6 +96,7 @@
 
 .commentSection:hover {
     background-color: lightgray;
+    cursor: pointer;
 }
 
 .commentNumber {
