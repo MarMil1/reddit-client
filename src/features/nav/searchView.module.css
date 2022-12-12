@@ -37,7 +37,12 @@
     .searchBarContainer {
         width: 400px;
     }
-    
+}
+
+@media screen and (max-width: 850px){
+    .searchBarContainer {
+        width: 350px;
+    }
 }
 
 @media screen and (max-width: 590px){

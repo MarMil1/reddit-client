@@ -6,9 +6,26 @@
 }
 
 .activeMenuButtonTitle {
-    color: gray;
+    color: #333333;
     font-size: 0.9rem;
     font-weight: 700;
+}
+
+.subredditImage {
+    height: 21px;
+    width: auto;
+    border-radius: 10px;
+    margin-right: 10px;
+    border: 1px solid #ff4500;
+}
+
+.feedsTitle {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #808080;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 @media screen and (max-width: 780px) {

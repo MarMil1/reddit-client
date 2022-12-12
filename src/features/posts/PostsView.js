@@ -7,9 +7,9 @@ import SkeletonPostView from "../skeletonLoad/SkeletonPostView";
 
 export const PostsView = () => {
   const post = useSelector((state) => state.post);
-  // console.log(post, "POST");
   const postCategory = useSelector((state) => state.filter.postCategory);
   const dispatch = useDispatch();
+
   useEffect(() => {
     if (!postCategory) {
       dispatch(updateCategory(".json"));
@@ -21,7 +21,23 @@ export const PostsView = () => {
   }, [dispatch, postCategory]);
 
   return (
-    <div>
+    <div
+      style={{
+        marginTop:
+          postCategory === "/r/popular.json" ||
+          postCategory === "r/popular.json" ||
+          postCategory === "/r/popular/hot.json" ||
+          postCategory === "r/popular/hot.json" ||
+          postCategory === "/r/popular/new.json" ||
+          postCategory === "r/popular/new.json" ||
+          postCategory === "/r/popular/top.json" ||
+          postCategory === "r/popular/top.json" ||
+          postCategory === "/r/popular/rising.json" ||
+          postCategory === "r/popular/rising.json"
+            ? "20px"
+            : "70px",
+      }}
+    >
       {post.loading && (
         <div>
           <SkeletonPostView />
@@ -32,7 +48,24 @@ export const PostsView = () => {
       )}
       {!post.loading && post.error ? <div>Error: {post.error}</div> : null}
       {!post.loading && post.posts.length ? (
-        <div id="all-posts">
+        <div
+          id="all-posts"
+          style={{
+            marginTop:
+              postCategory === "/r/popular.json" ||
+              postCategory === "r/popular.json" ||
+              postCategory === "/r/popular/hot.json" ||
+              postCategory === "r/popular/hot.json" ||
+              postCategory === "/r/popular/new.json" ||
+              postCategory === "r/popular/new.json" ||
+              postCategory === "/r/popular/top.json" ||
+              postCategory === "r/popular/top.json" ||
+              postCategory === "/r/popular/rising.json" ||
+              postCategory === "r/popular/rising.json"
+                ? "20px"
+                : "70px",
+          }}
+        >
           {post.posts.map((post, i) => (
             <SinglePost
               key={post.id}

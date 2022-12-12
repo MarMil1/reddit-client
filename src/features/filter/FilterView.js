@@ -15,7 +15,24 @@ export const FilterView = () => {
   };
 
   return (
-    <div className={styles.filterContainer}>
+    <div
+      className={styles.filterContainer}
+      style={{
+        display:
+          postCategory === "/r/popular.json" ||
+          postCategory === "r/popular.json" ||
+          postCategory === "/r/popular/hot.json" ||
+          postCategory === "r/popular/hot.json" ||
+          postCategory === "/r/popular/new.json" ||
+          postCategory === "r/popular/new.json" ||
+          postCategory === "/r/popular/top.json" ||
+          postCategory === "r/popular/top.json" ||
+          postCategory === "/r/popular/rising.json" ||
+          postCategory === "r/popular/rising.json"
+            ? "block"
+            : "none",
+      }}
+    >
       <div className={styles.filterSubContainer}>
         <Link to="r/popular/hot" className={styles.textLink}>
           <div
