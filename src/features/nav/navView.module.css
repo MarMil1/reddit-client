@@ -2,11 +2,10 @@
     background-color: #ffffff;
     height: 50px;
     width: 100%;
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 1;
-    border-bottom: 1px solid #cccccc;
-    box-shadow: 1px 1px 1px 1px rgb(183 183 183 / 18%);
+    border-bottom: 1px solid #e3e4e5;
 }
 
 .navSubContainer {
@@ -132,7 +131,7 @@
     to {opacity: 1;}
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 850px) {
     .navMenuContainer {
         display: block;
     }

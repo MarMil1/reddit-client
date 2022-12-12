@@ -25,18 +25,6 @@ export default function SkeletonLoadView() {
           />
           <Skeleton
             height={30}
-            width={100}
-            sx={{ marginLeft: 1 }}
-            animation="wave"
-          />
-          <Skeleton
-            height={30}
-            width={200}
-            sx={{ marginLeft: 1 }}
-            animation="wave"
-          />
-          <Skeleton
-            height={30}
             width={200}
             sx={{ marginLeft: 1 }}
             animation="wave"
